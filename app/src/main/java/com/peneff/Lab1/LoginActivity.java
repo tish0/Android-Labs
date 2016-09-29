@@ -38,11 +38,22 @@ public class LoginActivity extends AppCompatActivity {
         passField = (EditText) findViewById(R.id.passField);
 
         Button Login = (Button) findViewById(R.id.button1);
+        SharedPreferences shpr = getSharedPreferences("User info", Context.MODE_PRIVATE);
+final SharedPreferences.Editor editor = shpr.edit();
+        // SharedPreferences shpr = getSharedPreferences("User info", Context.MODE_PRIVATE);
 
+        String name = shpr.getString("DefaultEmail","email@domain.com");
+        String pass = shpr.getString("Pass","");
+
+        userField.setText(name);
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //start list items screen
+                //start list items screen     SharedPreferences.Editor editor = shpr.edit();
+                editor.putString("DefaultEmail", userField.getText().toString());
+                editor.putString("Pass", passField.getText().toString());
+                editor.commit();
+
                 Intent log1 = new Intent(getApplicationContext(),ListItemsActivity.class );
                startActivity(log1);
                 //start lab1 screen
@@ -58,18 +69,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        SharedPreferences shpr = getSharedPreferences("User info", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = shpr.edit();
-        editor.putString("DefaultEmail", userField.getText().toString());
-        editor.putString("Pass", passField.getText().toString());
-        editor.apply();
 
-       // SharedPreferences shpr = getSharedPreferences("User info", Context.MODE_PRIVATE);
-
-        String name = shpr.getString("DefaultEmail","email@domain.com");
-        String pass = shpr.getString("Pass","");
-
-        userField.setText(name);
 
 
         Log.i(ACTIVITY_NAME, "onStart");
