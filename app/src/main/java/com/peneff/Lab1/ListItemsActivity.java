@@ -99,7 +99,7 @@ public class ListItemsActivity extends AppCompatActivity {
                         resultIntent.putExtra("Reponse","My Information to share");
                         setResult(Activity.RESULT_OK,resultIntent);
                         finish();
-
+//hijh
                     }
                 });
                 builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
