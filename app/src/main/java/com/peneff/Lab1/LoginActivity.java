@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Button Login = (Button) findViewById(R.id.button1);
         SharedPreferences shpr = getSharedPreferences("User info", Context.MODE_PRIVATE);
-final SharedPreferences.Editor editor = shpr.edit();
+    final SharedPreferences.Editor editor = shpr.edit();
         // SharedPreferences shpr = getSharedPreferences("User info", Context.MODE_PRIVATE);
 
         String name = shpr.getString("DefaultEmail","email@domain.com");
@@ -57,8 +57,6 @@ final SharedPreferences.Editor editor = shpr.edit();
                 Intent log1 = new Intent(getApplicationContext(),ListItemsActivity.class );
                startActivity(log1);
                 //start lab1 screen
-             //   Intent intent = new Intent(LoginActivity.this, StartActivity.class);
-             //   startActivity(intent);
 
             }
         });
